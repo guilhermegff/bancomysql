@@ -18,6 +18,7 @@ BEGIN
     ELSE
 	INSERT INTO ingresso (dt_emissao, cd_numero_assento, cd_letra_assento, cd_sessao, cd_venda, 	vl_ingresso ) VALUES (NOW(), p_n_assento, p_letra_assento, p_cd_sessao, p_cd_venda, v_vl_ingresso); 
     END IF;
+
 END$$
 DELIMITER ;
 
