@@ -10,7 +10,7 @@ BEGIN
     SELECT cd_tipo_sala INTO v_cd_tipo_sala FROM sala WHERE cd_sala = v_cd_sala;
     SELECT vl_tipo_sala INTO v_vl_ingresso FROM tipo_sala WHERE cd_tipo_sala = v_cd_tipo_sala;
 
-    IF p_letra_assento NOT IN(SELECT cd_letra_assento FROM assento WHERE cd_sala = v_cd_sala) THEN
+    IF p_letra_assento NOT IN(SELECT cd_letra_assento FROM assento WHERE cd_sala = v_cd_sala) OR p_n_assento NOT IN(SELECT cd_numero_assento FROM assento WHERE cd_numero_assento = p_n_assento) THEN
 	SELECT 'Nao';
 	SIGNAL sqlstate '45100'
 	    SET MESSAGE_TEXT = 'Assento inexistente na sala';
